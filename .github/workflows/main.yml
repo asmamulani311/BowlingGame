@@ -1,0 +1,20 @@
+name: C++ Build & Run
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install -y g++
+
+      - name: Compile C++ program
+        run: g++ -o my_program main.cpp
+
+      - name: Run C++ program
+        run: ./my_program
